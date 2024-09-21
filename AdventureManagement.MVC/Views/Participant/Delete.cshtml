@@ -1,0 +1,21 @@
+﻿@model ParticipantVM
+
+<h1>Xóa người tham gia</h1>
+
+<p>Bạn có chắc chắn muốn xóa người tham gia này không?</p>
+
+<table class="table">
+    <tr>
+        <th>Tên:</th>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <th>Email:</th>
+        <td>@Model.Email</td>
+    </tr>
+</table>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a class="btn btn-secondary" href="/Participant">Hủy bỏ</a>
+</form>

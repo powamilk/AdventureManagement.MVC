@@ -1,0 +1,35 @@
+﻿@model ParticipantDetailVM
+
+<h1>Chi tiết của @Model.Name</h1>
+
+<table class="table">
+    <tr>
+        <th>Tên:</th>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <th>Email:</th>
+        <td>@Model.Email</td>
+    </tr>
+</table>
+
+<h2>Các chuyến phiêu lưu đã tham gia</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tiêu đề</th>
+            <th>Ngày tham gia</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var adventure in Model.Adventures)
+        {
+            <tr>
+                <td>@adventure.Title</td>
+                <td>@adventure.Date.ToString("yyyy-MM-dd")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-secondary" href="/Participant">Trở lại danh sách</a>

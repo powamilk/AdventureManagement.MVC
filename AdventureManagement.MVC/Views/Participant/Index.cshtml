@@ -1,0 +1,33 @@
+﻿@model List<AdventureManagement.MVC.Models.ParticipantVM>
+
+<h1>Danh sách người tham gia</h1>
+
+<a class="btn btn-primary" href="/Participant/Create">Thêm người tham gia mới</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tên</th>
+            <th>Email</th>
+            <th>Số chuyến phiêu lưu</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var participant in Model)
+        {
+            <tr>
+                <td>@participant.Id</td>
+                <td>@participant.Name</td>
+                <td>@participant.Email</td>
+                <td>@participant.AdventureCount</td>
+                <td>
+                    <a class="btn btn-info" href="/Participant/Details/@participant.Id">Xem chi tiết</a>
+                    <a class="btn btn-warning" href="/Participant/Edit/@participant.Id">Chỉnh sửa</a>
+                    <a class="btn btn-danger" href="/Participant/Delete/@participant.Id">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
