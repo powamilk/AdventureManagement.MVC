@@ -34,7 +34,7 @@ namespace AdventureManagement.MVC.Controllers
             try
             {
                 var participant = await _participantService.GetParticipantByIdAsync(id);
-                return View(participant);
+                return View(participant); 
             }
             catch (Exception ex)
             {

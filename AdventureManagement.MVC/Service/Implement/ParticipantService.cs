@@ -17,15 +17,22 @@ namespace AdventureManagement.MVC.Service.Implement
 
         public async Task<List<ParticipantVM>> GetAllParticipantsAsync()
         {
-            var response = await _httpClient.GetAsync(apiUrl);
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var json = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<List<ParticipantVM>>(json);
+                var response = await _httpClient.GetAsync(apiUrl);
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<List<ParticipantVM>>(json);
+                }
+                else
+                {
+                    throw new Exception("Không thể lấy danh sách người tham gia từ API.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                throw new Exception("Không thể lấy danh sách người tham gia từ API.");
+                throw ex;
             }
         }
 
